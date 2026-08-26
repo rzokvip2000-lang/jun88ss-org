@@ -1,19 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // ====== MATIKAN STANDALONE UNTUK CLOUDFLARE ======
+  // output: 'standalone', // ← COMMENT atau HAPUS
+  
   // ====== KOMPRESI GAMBAR ======
   images: {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    unoptimized: true, // ← TAMBAHKAN UNTUK CLOUDFLARE
   },
   
   // ====== OPTIMASI ======
   compress: true,
   reactStrictMode: true,
-  
-  // ====== OUTPUT STANDALONE (KECIL) ======
-  output: 'standalone',
   
   // ====== HEADERS UNTUK CACHE ======
   async headers() {
