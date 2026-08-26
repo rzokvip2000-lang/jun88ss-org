@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:clean": "Remove-Item -Recurse -Force .next; next build",
     "start": "next start",
     "lint": "eslint"
   },
