@@ -278,8 +278,7 @@ export default function ReviewPage() {
             lineHeight: '1.9',
             marginBottom: '16px'
           }}>
-            Setiap <a href="/review" className="review-link">review</a> 
-            kami buat berdasarkan <strong style={{ color: 'white' }}>pengalaman bermain langsung</strong> 
+            Setiap <a href="/review" className="review-link">review</a> kami buat berdasarkan <strong style={{ color: 'white' }}>pengalaman bermain langsung</strong> 
             dan analisis mendalam terhadap RTP, volatilitas, fitur bonus, hingga potensi max win. 
             Dengan informasi ini, Anda bisa memilih game yang paling sesuai dengan gaya bermain 
             dan modal yang Anda miliki. Untuk memulai petualangan Anda, lakukan <a href="https://jun88ss.org" className="review-link">daftar Jun88</a> sekarang juga!
@@ -334,8 +333,7 @@ export default function ReviewPage() {
               marginRight: 'auto',
               lineHeight: '1.8'
             }}>
-              Berikut adalah kumpulan <a href="/review" className="review-link">review</a> mendalam 
-              untuk 6 game slot terpopuler dari PG Soft yang tersedia di <a href="https://jun88ss.org" className="review-link">Jun88</a>. 
+              Berikut adalah kumpulan review mendalam untuk 6 game slot terpopuler dari PG Soft yang tersedia di <a href="https://jun88ss.org" className="review-link">Jun88</a>. 
               Setiap <a href="/review" className="review-link">review</a> mencakup analisis RTP, volatilitas, 
               fitur bonus, hingga tips strategi bermain untuk membantu Anda memilih game yang paling sesuai.
             </p>
