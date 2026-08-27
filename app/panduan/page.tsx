@@ -1,7 +1,4 @@
-'use client';
-
 import Link from 'next/link';
-import { useState } from 'react';
 
 export const metadata = {
   title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
@@ -118,11 +115,6 @@ export default function PanduanPage() {
   ];
 
   const categories = ['Semua', ...new Set(guides.map((g) => g.category))];
-  const [activeCategory, setActiveCategory] = useState('Semua');
-
-  const filteredGuides = activeCategory === 'Semua' 
-    ? guides 
-    : guides.filter((g) => g.category === activeCategory);
 
   return (
     <div style={{
@@ -289,15 +281,17 @@ export default function PanduanPage() {
             gap: 'clamp(6px, 1vw, 8px)',
             marginTop: 'clamp(16px, 2vw, 20px)'
           }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={activeCategory === cat ? 'filter-btn filter-btn-active' : 'filter-btn filter-btn-inactive'}
-              >
-                {cat}
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const isActive = cat === 'Semua';
+              return (
+                <button
+                  key={cat}
+                  className={isActive ? 'filter-btn filter-btn-active' : 'filter-btn filter-btn-inactive'}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -308,7 +302,7 @@ export default function PanduanPage() {
           gap: 'clamp(16px, 2vw, 20px)',
           padding: '0 10px'
         }}>
-          {filteredGuides.map((guide) => (
+          {guides.map((guide) => (
             <Link
               key={guide.id}
               href={`/panduan/${guide.slug}`}
@@ -390,7 +384,7 @@ export default function PanduanPage() {
           color: '#6b7280',
           fontSize: 'clamp(13px, 1.2vw, 14px)'
         }}>
-          Menampilkan {filteredGuides.length} dari {guides.length} panduan
+          Menampilkan {guides.length} dari {guides.length} panduan
         </div>
 
         {/* ====== BACK TO HOME ====== */}

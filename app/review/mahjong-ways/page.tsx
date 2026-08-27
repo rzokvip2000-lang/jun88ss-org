@@ -1,5 +1,7 @@
+// HAPUS 'use client' - Metadata hanya bisa di Server Component
+// HAPUS useState - Tidak bisa dipakai di Server Component
+
 import Link from 'next/link';
-import { useState } from 'react';
 
 export const metadata = {
   title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
@@ -115,12 +117,8 @@ export default function PanduanPage() {
     }
   ];
 
-  const categories = ['Semua', ...new Set(guides.map((g) => g.category))];
-  const [activeCategory, setActiveCategory] = useState('Semua');
-
-  const filteredGuides = activeCategory === 'Semua' 
-    ? guides 
-    : guides.filter((g) => g.category === activeCategory);
+  // TAMPILKAN SEMUA - TANPA FILTER
+  const filteredGuides = guides;
 
   return (
     <div style={{
@@ -182,28 +180,6 @@ export default function PanduanPage() {
             grid-template-columns: 1fr !important;
             gap: 12px !important;
           }
-        }
-        .filter-btn {
-          padding: clamp(6px, 0.8vw, 8px) clamp(14px, 2vw, 18px);
-          border-radius: 50px;
-          font-size: clamp(12px, 1.2vw, 14px);
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.3s;
-          border: none;
-        }
-        .filter-btn-active {
-          background: linear-gradient(135deg, #7c3aed, #ec4899);
-          color: white;
-          box-shadow: 0 10px 30px rgba(124,58,237,0.2);
-        }
-        .filter-btn-inactive {
-          background: rgba(255,255,255,0.05);
-          color: #9ca3af;
-          border: 1px solid rgba(255,255,255,0.1);
-        }
-        .filter-btn-inactive:hover {
-          background: rgba(255,255,255,0.1);
         }
         .guide-card {
           background: rgba(255,255,255,0.03);
@@ -278,25 +254,6 @@ export default function PanduanPage() {
           }}>
             Kumpulan panduan lengkap untuk membantu Anda memahami dunia slot online di <a href="https://jun88ss.org" style={{ color: '#a78bfa', textDecoration: 'none' }}>Jun88</a>
           </p>
-          
-          {/* ====== FILTERS ====== */}
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: 'clamp(6px, 1vw, 8px)',
-            marginTop: 'clamp(16px, 2vw, 20px)'
-          }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={activeCategory === cat ? 'filter-btn filter-btn-active' : 'filter-btn filter-btn-inactive'}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* ====== GRID PANDUAN ====== */}

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useState } from 'react';
 
 export const metadata = {
   title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
@@ -115,13 +114,6 @@ export default function PanduanPage() {
     }
   ];
 
-  const categories = ['Semua', ...new Set(guides.map((g) => g.category))];
-  const [activeCategory, setActiveCategory] = useState('Semua');
-
-  const filteredGuides = activeCategory === 'Semua' 
-    ? guides 
-    : guides.filter((g) => g.category === activeCategory);
-
   return (
     <div style={{
       minHeight: '100vh',
@@ -133,7 +125,6 @@ export default function PanduanPage() {
       overflow: 'hidden'
     }}>
       
-      {/* ====== BACKGROUND EFFECTS ====== */}
       <div style={{
         position: 'fixed',
         width: 'clamp(300px, 40vw, 600px)',
@@ -183,28 +174,6 @@ export default function PanduanPage() {
             gap: 12px !important;
           }
         }
-        .filter-btn {
-          padding: clamp(6px, 0.8vw, 8px) clamp(14px, 2vw, 18px);
-          border-radius: 50px;
-          font-size: clamp(12px, 1.2vw, 14px);
-          font-weight: 500;
-          cursor: pointer;
-          transition: all 0.3s;
-          border: none;
-        }
-        .filter-btn-active {
-          background: linear-gradient(135deg, #7c3aed, #ec4899);
-          color: white;
-          box-shadow: 0 10px 30px rgba(124,58,237,0.2);
-        }
-        .filter-btn-inactive {
-          background: rgba(255,255,255,0.05);
-          color: #9ca3af;
-          border: 1px solid rgba(255,255,255,0.1);
-        }
-        .filter-btn-inactive:hover {
-          background: rgba(255,255,255,0.1);
-        }
         .guide-card {
           background: rgba(255,255,255,0.03);
           backdrop-filter: blur(16px);
@@ -246,7 +215,6 @@ export default function PanduanPage() {
         }
       `}</style>
 
-      {/* ====== CONTENT ====== */}
       <div style={{ 
         position: 'relative', 
         zIndex: 1,
@@ -255,7 +223,6 @@ export default function PanduanPage() {
         paddingTop: 'clamp(40px, 6vw, 80px)'
       }}>
         
-        {/* ====== HEADER ====== */}
         <div style={{ 
           textAlign: 'center', 
           marginBottom: 'clamp(30px, 4vw, 40px)',
@@ -278,35 +245,15 @@ export default function PanduanPage() {
           }}>
             Kumpulan panduan lengkap untuk membantu Anda memahami dunia slot online di <a href="https://jun88ss.org" style={{ color: '#a78bfa', textDecoration: 'none' }}>Jun88</a>
           </p>
-          
-          {/* ====== FILTERS ====== */}
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: 'clamp(6px, 1vw, 8px)',
-            marginTop: 'clamp(16px, 2vw, 20px)'
-          }}>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={activeCategory === cat ? 'filter-btn filter-btn-active' : 'filter-btn filter-btn-inactive'}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* ====== GRID PANDUAN ====== */}
         <div className="guide-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 'clamp(16px, 2vw, 20px)',
           padding: '0 10px'
         }}>
-          {filteredGuides.map((guide) => (
+          {guides.map((guide) => (
             <Link
               key={guide.id}
               href={`/panduan/${guide.slug}`}
@@ -316,7 +263,6 @@ export default function PanduanPage() {
               }}
             >
               <div className="guide-card">
-                {/* HEADER CARD */}
                 <div style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -336,7 +282,6 @@ export default function PanduanPage() {
                   </span>
                 </div>
 
-                {/* TITLE */}
                 <h3 style={{
                   fontWeight: 'bold',
                   fontSize: 'clamp(15px, 1.5vw, 17px)',
@@ -347,7 +292,6 @@ export default function PanduanPage() {
                   {guide.title}
                 </h3>
 
-                {/* DESCRIPTION */}
                 <p style={{
                   color: '#9ca3af',
                   fontSize: 'clamp(13px, 1.2vw, 14px)',
@@ -358,7 +302,6 @@ export default function PanduanPage() {
                   {guide.description}
                 </p>
 
-                {/* FOOTER */}
                 <div style={{
                   display: 'flex',
                   justifyContent: 'space-between',
@@ -381,17 +324,15 @@ export default function PanduanPage() {
           ))}
         </div>
 
-        {/* ====== JUMLAH PANDUAN ====== */}
         <div style={{
           textAlign: 'center',
           marginTop: 'clamp(20px, 3vw, 30px)',
           color: '#6b7280',
           fontSize: 'clamp(13px, 1.2vw, 14px)'
         }}>
-          Menampilkan {filteredGuides.length} dari {guides.length} panduan
+          Menampilkan {guides.length} dari {guides.length} panduan
         </div>
 
-        {/* ====== BACK TO HOME ====== */}
         <div style={{ 
           textAlign: 'center', 
           marginTop: 'clamp(20px, 3vw, 30px)'
