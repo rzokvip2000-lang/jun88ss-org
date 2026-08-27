@@ -1,6 +1,26 @@
-'use client';
+// HAPUS 'use client' - Metadata hanya bisa di Server Component
 
 import Link from 'next/link';
+
+export const metadata = {
+  title: 'Artikel & Berita Slot Online Terbaru | Jun88',
+  description: 'Kumpulan artikel, berita, dan tips terbaru seputar dunia slot online di Jun88. Update RTP, strategi, dan perbandingan game slot.',
+  alternates: {
+    canonical: 'https://jun88ss.org/artikel',
+  },
+  openGraph: {
+    title: 'Artikel & Berita Slot Online Terbaru | Jun88',
+    description: 'Kumpulan artikel, berita, dan tips terbaru seputar dunia slot online di Jun88.',
+    url: 'https://jun88ss.org/artikel',
+    siteName: 'Jun88',
+    type: 'website',
+    locale: 'id_ID',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function ArtikelPage() {
   const articles = [

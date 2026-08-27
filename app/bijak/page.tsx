@@ -31,7 +31,8 @@ export default function BijakPage() {
       maxWidth: '900px',
       margin: '0 auto',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      paddingTop: 'clamp(40px, 6vw, 80px)'
     }}>
       
       {/* ====== BACKGROUND EFFECTS ====== */}
@@ -71,6 +72,7 @@ export default function BijakPage() {
         backgroundSize: 'clamp(40px, 5vw, 60px) clamp(40px, 5vw, 60px)'
       }}></div>
 
+      {/* ====== STYLES ====== */}
       <style>{`
         .back-link {
           color: #6b7280;
@@ -129,6 +131,8 @@ export default function BijakPage() {
           padding: clamp(20px, 3vw, 30px);
           border: 1px solid rgba(255,255,255,0.05);
           line-height: 1.9;
+          position: relative;
+          zIndex: 1;
         }
       `}</style>
 
@@ -137,8 +141,7 @@ export default function BijakPage() {
         position: 'relative', 
         zIndex: 1,
         maxWidth: '900px',
-        margin: '0 auto',
-        paddingTop: 'clamp(40px, 6vw, 80px)'
+        margin: '0 auto'
       }}>
         
         {/* ====== HEADER ====== */}

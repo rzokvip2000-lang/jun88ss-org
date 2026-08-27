@@ -3,6 +3,26 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
+export const metadata = {
+  title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
+  description: 'Kumpulan panduan lengkap untuk pemain slot online di Jun88. Pelajari RTP, volatilitas, strategi, dan tips bermain slot yang aman.',
+  alternates: {
+    canonical: 'https://jun88ss.org/panduan',
+  },
+  openGraph: {
+    title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
+    description: 'Kumpulan panduan lengkap untuk pemain slot online di Jun88. Pelajari RTP, volatilitas, strategi, dan tips bermain slot yang aman.',
+    url: 'https://jun88ss.org/panduan',
+    siteName: 'Jun88',
+    type: 'website',
+    locale: 'id_ID',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function PanduanPage() {
   const guides = [
     { 
