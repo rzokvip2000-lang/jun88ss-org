@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // ====== SSR/ISR MODE (BUKAN STATIC EXPORT) ======
-  // output: 'export',  // <-- TETAP DIHAPUS!
+  output: 'export',  // <-- STATIC EXPORT
   
-  // ====== KOMPRESI GAMBAR ======
   images: {
+    unoptimized: true,  // <-- WAJIB! Biar image bisa di-load di static export
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -17,11 +16,9 @@ const nextConfig: NextConfig = {
     ],
   },
   
-  // ====== OPTIMASI ======
   compress: true,
   reactStrictMode: true,
   
-  // ====== HEADERS UNTUK CACHE ======
   async headers() {
     return [
       {
@@ -63,7 +60,6 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // ====== SECURITY ======
   poweredByHeader: false,
 };
 
