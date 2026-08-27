@@ -1,366 +1,478 @@
-// HAPUS 'use client' - Metadata hanya bisa di Server Component
-// HAPUS useState - Tidak bisa dipakai di Server Component
-
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
-  description: 'Kumpulan panduan lengkap untuk pemain slot online di Jun88. Pelajari RTP, volatilitas, strategi, dan tips bermain slot yang aman.',
+  title: 'Kebijakan Privasi - Jun88 | Review Slot Online Terpercaya',
+  description: 'Kebijakan privasi website Jun88. Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda.',
   alternates: {
-    canonical: 'https://jun88ss.org/panduan',
-  },
-  openGraph: {
-    title: 'Panduan Bermain Slot Online Terlengkap | Jun88',
-    description: 'Kumpulan panduan lengkap untuk pemain slot online di Jun88. Pelajari RTP, volatilitas, strategi, dan tips bermain slot yang aman.',
-    url: 'https://jun88ss.org/panduan',
-    siteName: 'Jun88',
-    type: 'website',
-    locale: 'id_ID',
+    canonical: 'https://jun88ss.org/privasi',
   },
   robots: {
     index: true,
     follow: true,
   },
+  openGraph: {
+    title: 'Kebijakan Privasi - Jun88 | Review Slot Online Terpercaya',
+    description: 'Kebijakan privasi website Jun88. Pelajari bagaimana kami mengumpulkan, menggunakan, dan melindungi data pribadi Anda.',
+    url: 'https://jun88ss.org/privasi',
+    siteName: 'Jun88',
+    type: 'website',
+    locale: 'id_ID',
+  },
 };
 
-export default function PanduanPage() {
-  const guides = [
-    { 
-      id: 1, 
-      title: 'Apa Itu RTP? Panduan Lengkap untuk Pemain Slot', 
-      slug: 'apa-itu-rtp', 
-      category: 'Dasar', 
-      emoji: '📊', 
-      description: 'Pelajari apa itu RTP (Return to Player) dan bagaimana cara menggunakannya untuk memilih game slot terbaik.', 
-      date: '21 Agustus 2026' 
-    },
-    { 
-      id: 2, 
-      title: 'Volatilitas Slot: Low, Medium, High - Mana yang Cocok?', 
-      slug: 'volatilitas-slot', 
-      category: 'Dasar', 
-      emoji: '📈', 
-      description: 'Kenali perbedaan volatilitas rendah, sedang, dan tinggi serta cara memilih sesuai gaya bermain Anda.', 
-      date: '20 Agustus 2026' 
-    },
-    { 
-      id: 3, 
-      title: 'Cara Memilih Game Slot yang Tepat untuk Pemula', 
-      slug: 'memilih-game-slot', 
-      category: 'Pemula', 
-      emoji: '🎯', 
-      description: 'Panduan lengkap untuk pemula dalam memilih game slot yang sesuai dengan modal dan tujuan bermain.', 
-      date: '19 Agustus 2026' 
-    },
-    { 
-      id: 4, 
-      title: '5 Kesalahan Pemula di Slot Online dan Cara Menghindarinya', 
-      slug: 'kesalahan-pemula-slot', 
-      category: 'Pemula', 
-      emoji: '⚠️', 
-      description: 'Hindari kesalahan umum yang sering dilakukan pemain pemula dan tingkatkan peluang kemenangan Anda.', 
-      date: '18 Agustus 2026' 
-    },
-    { 
-      id: 5, 
-      title: 'Istilah-istilah Slot yang Wajib Diketahui Pemain', 
-      slug: 'istilah-slot', 
-      category: 'Dasar', 
-      emoji: '📚', 
-      description: 'Kumpulan istilah penting dalam dunia slot online yang harus Anda ketahui sebelum bermain.', 
-      date: '17 Agustus 2026' 
-    },
-    { 
-      id: 6, 
-      title: 'Tips Mengelola Bankroll untuk Bermain Slot', 
-      slug: 'mengelola-bankroll', 
-      category: 'Strategi', 
-      emoji: '💰', 
-      description: 'Pelajari cara mengelola modal dengan bijak agar bermain lebih lama dan mengurangi risiko kerugian besar.', 
-      date: '16 Agustus 2026' 
-    },
-    { 
-      id: 7, 
-      title: 'Cara Kerja Fitur Free Spin di Slot Online', 
-      slug: 'fitur-free-spin', 
-      category: 'Fitur', 
-      emoji: '🔄', 
-      description: 'Pahami cara kerja fitur putaran gratis dan bagaimana memaksimalkan peluang kemenangan dari fitur ini.', 
-      date: '15 Agustus 2026' 
-    },
-    { 
-      id: 8, 
-      title: 'Strategi Bermain Slot dengan Modal Kecil', 
-      slug: 'strategi-modal-kecil', 
-      category: 'Strategi', 
-      emoji: '🎲', 
-      description: 'Tips dan trik bermain slot dengan modal terbatas agar tetap bisa menikmati permainan dan menang.', 
-      date: '14 Agustus 2026' 
-    },
-    { 
-      id: 9, 
-      title: 'Perbedaan Slot Klasik dan Slot Video Modern', 
-      slug: 'perbedaan-slot-klasik-modern', 
-      category: 'Dasar', 
-      emoji: '🕹️', 
-      description: 'Kenali perbedaan antara slot klasik 3 gulungan dan slot video modern dengan fitur canggih.', 
-      date: '13 Agustus 2026' 
-    },
-    { 
-      id: 10, 
-      title: 'Cara Bermain Slot dengan Bijak dan Bertanggung Jawab', 
-      slug: 'bermain-slot-bijak', 
-      category: 'Tips', 
-      emoji: '🧠', 
-      description: 'Panduan bermain slot secara sehat, mengatur batas waktu dan uang, serta menghindari kecanduan.', 
-      date: '12 Agustus 2026' 
-    }
-  ];
-
-  // TAMPILKAN SEMUA - TANPA FILTER
-  const filteredGuides = guides;
-
+export default function PrivasiPage() {
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: '#0a0a0a',
-      color: 'white',
-      padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 20px)',
-      fontFamily: 'Arial, sans-serif',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
-      
-      {/* ====== BACKGROUND EFFECTS ====== */}
-      <div style={{
-        position: 'fixed',
-        width: 'clamp(300px, 40vw, 600px)',
-        height: 'clamp(300px, 40vw, 600px)',
-        top: '-200px',
-        right: '-200px',
-        background: 'radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%)',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        zIndex: 0
-      }}></div>
-
-      <div style={{
-        position: 'fixed',
-        width: 'clamp(250px, 35vw, 500px)',
-        height: 'clamp(250px, 35vw, 500px)',
-        bottom: '-150px',
-        left: '-150px',
-        background: 'radial-gradient(circle, rgba(236,72,153,0.12), transparent 70%)',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        zIndex: 0
-      }}></div>
-
-      <div style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: 'none',
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-        `,
-        backgroundSize: 'clamp(40px, 5vw, 60px) clamp(40px, 5vw, 60px)'
-      }}></div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .guide-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 14px !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .guide-grid {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
-          }
-        }
-        .guide-card {
-          background: rgba(255,255,255,0.03);
-          backdrop-filter: blur(16px);
-          WebkitBackdropFilter: blur(16px);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: clamp(12px, 1.5vw, 16px);
-          padding: clamp(16px, 2vw, 20px);
-          transition: all 0.4s;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-        }
-        .guide-card:hover {
-          background: rgba(255,255,255,0.06);
-          border-color: rgba(124,58,237,0.3);
-          transform: translateY(-6px);
-          box-shadow: 0 20px 60px rgba(124,58,237,0.1);
-        }
-        .back-link {
-          color: #6b7280;
-          text-decoration: none;
-          font-size: clamp(13px, 1.2vw, 14px);
-          transition: all 0.3s;
-          display: inline-block;
-        }
-        .back-link:hover {
-          color: white;
-          transform: translateX(-4px);
-        }
-        .read-link {
-          color: #a78bfa;
-          font-size: clamp(13px, 1.2vw, 14px);
-          font-weight: bold;
-          transition: all 0.3s;
-        }
-        .read-link:hover {
-          color: #c4b5fd;
-        }
-      `}</style>
-
+    <div
+      style={{
+        minHeight: '100vh',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
+        background: 'transparent',
+      }}
+    >
       {/* ====== CONTENT ====== */}
-      <div style={{ 
-        position: 'relative', 
-        zIndex: 1,
-        maxWidth: '1200px',
-        margin: '0 auto',
-        paddingTop: 'clamp(40px, 6vw, 80px)'
-      }}>
-        
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '900px',
+          margin: '0 auto',
+          paddingTop: 'clamp(40px, 6vw, 80px)',
+          paddingLeft: 'clamp(16px, 3vw, 20px)',
+          paddingRight: 'clamp(16px, 3vw, 20px)',
+          paddingBottom: 'clamp(20px, 3vw, 30px)',
+        }}
+      >
         {/* ====== HEADER ====== */}
-        <div style={{ 
-          textAlign: 'center', 
-          marginBottom: 'clamp(30px, 4vw, 40px)',
-          padding: '0 10px'
-        }}>
-          <h1 style={{ 
-            fontSize: 'clamp(28px, 5vw, 40px)', 
-            fontWeight: 'bold',
-            margin: '0'
-          }}>
-            Panduan <span style={{ color: '#a78bfa' }}>Bermain Slot</span>
+        <div
+          style={{
+            textAlign: 'center',
+            marginBottom: 'clamp(30px, 4vw, 40px)',
+            padding: '0 10px',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 'clamp(28px, 5vw, 40px)',
+              fontWeight: 'bold',
+              margin: '0',
+            }}
+          >
+            Kebijakan <span style={{ color: '#34d399' }}>Privasi</span>
           </h1>
-          <p style={{ 
-            color: '#9ca3af', 
-            fontSize: 'clamp(14px, 1.5vw, 16px)',
-            marginTop: '8px',
-            maxWidth: '600px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}>
-            Kumpulan panduan lengkap untuk membantu Anda memahami dunia slot online di <a href="https://jun88ss.org" style={{ color: '#a78bfa', textDecoration: 'none' }}>Jun88</a>
+          <p
+            style={{
+              color: 'rgba(255,255,255,0.6)',
+              maxWidth: '600px',
+              margin: '12px auto 0',
+              fontSize: 'clamp(14px, 1.5vw, 18px)',
+            }}
+          >
+            Kebijakan privasi yang berlaku saat mengakses website{' '}
+            <a
+              href="https://jun88ss.org"
+              style={{ color: '#a78bfa', textDecoration: 'none' }}
+            >
+              Jun88
+            </a>
+            .
           </p>
         </div>
 
-        {/* ====== GRID PANDUAN ====== */}
-        <div className="guide-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'clamp(16px, 2vw, 20px)',
-          padding: '0 10px'
-        }}>
-          {filteredGuides.map((guide) => (
-            <Link
-              key={guide.id}
-              href={`/panduan/${guide.slug}`}
+        {/* ====== CONTENT ====== */}
+        <div
+          style={{
+            background: 'rgba(255,255,255,0.06)',
+            borderRadius: '20px',
+            padding: 'clamp(24px, 3vw, 36px)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            lineHeight: 1.9,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+          }}
+        >
+          {/* ====== KONTEN ====== */}
+          <div
+            style={{
+              color: 'rgba(255,255,255,0.85)',
+              fontSize: 'clamp(15px, 1.2vw, 17px)',
+              lineHeight: 1.9,
+            }}
+          >
+            {/* ====== PENDAHULUAN ====== */}
+            <h2
               style={{
-                textDecoration: 'none',
-                color: 'white'
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: '0',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
               }}
             >
-              <div className="guide-card">
-                {/* HEADER CARD */}
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'clamp(8px, 1vw, 10px)',
-                  marginBottom: '12px'
-                }}>
-                  <span style={{ fontSize: 'clamp(24px, 3vw, 28px)' }}>{guide.emoji}</span>
-                  <span style={{
-                    fontSize: 'clamp(10px, 1vw, 12px)',
-                    fontWeight: 'bold',
-                    background: 'rgba(124,58,237,0.2)',
-                    color: '#a78bfa',
-                    padding: '4px 12px',
-                    borderRadius: '50px'
-                  }}>
-                    {guide.category}
-                  </span>
-                </div>
+              🔒 Pendahuluan
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Kami di{' '}
+              <a
+                href="https://jun88ss.org"
+                style={{ color: '#a78bfa', textDecoration: 'none' }}
+              >
+                Jun88
+              </a>{' '}
+              menghargai privasi Anda. Kebijakan privasi ini menjelaskan bagaimana
+              kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda
+              saat Anda mengakses website kami. Dengan menggunakan website ini,
+              Anda menyetujui praktik yang dijelaskan dalam kebijakan ini.
+            </p>
 
-                {/* TITLE */}
-                <h3 style={{
-                  fontWeight: 'bold',
-                  fontSize: 'clamp(15px, 1.5vw, 17px)',
-                  margin: '0 0 8px 0',
-                  lineHeight: '1.3',
-                  flex: '1'
-                }}>
-                  {guide.title}
-                </h3>
+            {/* ====== INFORMASI YANG DIKUMPULKAN ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              📋 Informasi yang Dikumpulkan
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Kami dapat mengumpulkan informasi berikut:
+            </p>
+            <ul
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                paddingLeft: 'clamp(24px, 2vw, 32px)',
+                marginBottom: '16px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                <strong style={{ color: '#ffffff' }}>Informasi yang Anda Berikan:</strong>{' '}
+                Nama, alamat email, dan informasi lain yang Anda berikan saat mengisi
+                formulir atau berinteraksi dengan website.
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                <strong style={{ color: '#ffffff' }}>Informasi Otomatis:</strong>{' '}
+                Alamat IP, jenis browser, sistem operasi, halaman yang dikunjungi,
+                waktu akses, dan data analitik lainnya.
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                <strong style={{ color: '#ffffff' }}>Cookie:</strong>{' '}
+                Data yang dikumpulkan melalui cookie untuk meningkatkan pengalaman
+                pengguna.
+              </li>
+            </ul>
 
-                {/* DESCRIPTION */}
-                <p style={{
-                  color: '#9ca3af',
-                  fontSize: 'clamp(13px, 1.2vw, 14px)',
-                  margin: '0 0 16px 0',
-                  lineHeight: '1.6',
-                  flex: '1'
-                }}>
-                  {guide.description}
-                </p>
+            {/* ====== PENGGUNAAN INFORMASI ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              🎯 Penggunaan Informasi
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Informasi yang kami kumpulkan digunakan untuk:
+            </p>
+            <ul
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                paddingLeft: 'clamp(24px, 2vw, 32px)',
+                marginBottom: '16px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Menyediakan dan meningkatkan layanan website
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Mengirimkan pembaruan dan informasi terkait konten
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Menganalisis tren dan perilaku pengguna
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Menyediakan konten yang relevan dan dipersonalisasi
+              </li>
+            </ul>
 
-                {/* FOOTER */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingTop: '12px',
-                  borderTop: '1px solid rgba(255,255,255,0.05)'
-                }}>
-                  <span style={{
-                    color: '#6b7280',
-                    fontSize: 'clamp(11px, 1vw, 12px)'
-                  }}>
-                    📅 {guide.date}
-                  </span>
-                  <span className="read-link">
-                    Baca →
-                  </span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+            {/* ====== COOKIE ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              🍪 Cookie
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Website{' '}
+              <a
+                href="https://jun88ss.org"
+                style={{ color: '#a78bfa', textDecoration: 'none' }}
+              >
+                Jun88
+              </a>{' '}
+              menggunakan cookie untuk meningkatkan pengalaman pengguna. Cookie adalah
+              file kecil yang disimpan di perangkat Anda. Anda dapat mengatur browser
+              untuk menolak cookie, namun hal ini dapat mempengaruhi fungsionalitas
+              website.
+            </p>
 
-        {/* ====== JUMLAH PANDUAN ====== */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: 'clamp(20px, 3vw, 30px)',
-          color: '#6b7280',
-          fontSize: 'clamp(13px, 1.2vw, 14px)'
-        }}>
-          Menampilkan {filteredGuides.length} dari {guides.length} panduan
+            {/* ====== KEHALAMAN PIHAK KETIGA ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              🔗 Tautan ke Pihak Ketiga
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Website ini mungkin berisi tautan ke website pihak ketiga. Kami{' '}
+              <strong style={{ color: '#ffffff' }}>tidak bertanggung jawab</strong>{' '}
+              atas kebijakan privasi atau konten dari website tersebut. Kami
+              menyarankan Anda untuk membaca kebijakan privasi dari setiap website
+              yang Anda kunjungi.
+            </p>
+
+            {/* ====== KEAMANAN ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              🛡️ Keamanan
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Kami mengambil langkah-langkah keamanan yang wajar untuk melindungi
+              informasi pribadi Anda dari akses, perubahan, atau penghapusan yang tidak
+              sah. Namun, tidak ada metode transmisi data melalui internet yang 100%
+              aman, dan kami tidak dapat menjamin keamanan absolut.
+            </p>
+
+            {/* ====== HAK PENGGUNA ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              👤 Hak Pengguna
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Anda memiliki hak untuk:
+            </p>
+            <ul
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                paddingLeft: 'clamp(24px, 2vw, 32px)',
+                marginBottom: '16px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Mengakses dan memperbarui informasi pribadi Anda
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Meminta penghapusan data pribadi Anda
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Menolak pengumpulan data tertentu
+              </li>
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                Menarik persetujuan sewaktu-waktu
+              </li>
+            </ul>
+
+            {/* ====== PERUBAHAN KEBIJAKAN ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              📝 Perubahan Kebijakan Privasi
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '12px',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Kami berhak untuk mengubah kebijakan privasi ini sewaktu-waktu.
+              Perubahan akan diumumkan di halaman ini dengan tanggal pembaruan
+              terbaru. Kami menyarankan Anda untuk memeriksa halaman ini secara
+              berkala untuk mengetahui perubahan terbaru.
+            </p>
+
+            {/* ====== HUBUNGI KAMI ====== */}
+            <h2
+              style={{
+                color: '#ffffff',
+                fontSize: 'clamp(20px, 2.5vw, 24px)',
+                marginTop: 'clamp(28px, 3vw, 36px)',
+                marginBottom: '12px',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                paddingBottom: '10px',
+              }}
+            >
+              📧 Hubungi Kami
+            </h2>
+            <p
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                marginBottom: '0',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              Jika Anda memiliki pertanyaan tentang kebijakan privasi ini, silakan
+              hubungi kami melalui:
+            </p>
+            <ul
+              style={{
+                color: 'rgba(255,255,255,0.8)',
+                paddingLeft: 'clamp(24px, 2vw, 32px)',
+                marginBottom: '0',
+                fontSize: 'clamp(15px, 1.2vw, 17px)',
+                lineHeight: 1.9,
+              }}
+            >
+              <li style={{ marginBottom: '8px', lineHeight: '1.8' }}>
+                🌐 <strong style={{ color: '#ffffff' }}>Website:</strong>{' '}
+                <a
+                  href="https://jun88ss.org"
+                  style={{ color: '#a78bfa', textDecoration: 'none' }}
+                >
+                  jun88ss.org
+                </a>
+              </li>
+            </ul>
+
+            {/* ====== FOOTER ====== */}
+            <div
+              style={{
+                borderTop: '1px solid rgba(255,255,255,0.06)',
+                paddingTop: 'clamp(14px, 1.5vw, 16px)',
+                marginTop: 'clamp(24px, 2vw, 28px)',
+                color: 'rgba(255,255,255,0.3)',
+                fontSize: 'clamp(12px, 1.2vw, 14px)',
+                textAlign: 'center',
+              }}
+            >
+              Terakhir diperbarui: 21 Agustus 2026
+            </div>
+          </div>
         </div>
 
         {/* ====== BACK TO HOME ====== */}
-        <div style={{ 
-          textAlign: 'center', 
-          marginTop: 'clamp(20px, 3vw, 30px)'
-        }}>
-          <Link 
-            href="/" 
-            className="back-link"
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: 'clamp(20px, 3vw, 30px)',
+            padding: '0 10px 20px 10px',
+          }}
+        >
+          <Link
+            href="/"
+            style={{
+              color: 'rgba(255,255,255,0.4)',
+              textDecoration: 'none',
+              fontSize: 'clamp(13px, 1.2vw, 14px)',
+              transition: 'all 0.3s',
+              display: 'inline-block',
+            }}
           >
             ← Kembali ke Beranda
           </Link>
         </div>
-
       </div>
     </div>
   );

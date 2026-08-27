@@ -1,6 +1,3 @@
-// HAPUS 'use client' - Metadata hanya bisa di Server Component
-// HAPUS useState - Tidak bisa dipakai di Server Component
-
 import Link from 'next/link';
 
 export const metadata = {
@@ -117,219 +114,222 @@ export default function PanduanPage() {
     }
   ];
 
-  // TAMPILKAN SEMUA - TANPA FILTER
-  const filteredGuides = guides;
+  const categories = ['Semua', ...new Set(guides.map((g) => g.category))];
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      background: '#0a0a0a',
-      color: 'white',
-      padding: 'clamp(24px, 4vw, 40px) clamp(16px, 3vw, 20px)',
-      fontFamily: 'Arial, sans-serif',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
-      
-      {/* ====== BACKGROUND EFFECTS ====== */}
-      <div style={{
-        position: 'fixed',
-        width: 'clamp(300px, 40vw, 600px)',
-        height: 'clamp(300px, 40vw, 600px)',
-        top: '-200px',
-        right: '-200px',
-        background: 'radial-gradient(circle, rgba(124,58,237,0.15), transparent 70%)',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        zIndex: 0
-      }}></div>
-
-      <div style={{
-        position: 'fixed',
-        width: 'clamp(250px, 35vw, 500px)',
-        height: 'clamp(250px, 35vw, 500px)',
-        bottom: '-150px',
-        left: '-150px',
-        background: 'radial-gradient(circle, rgba(236,72,153,0.12), transparent 70%)',
-        borderRadius: '50%',
-        pointerEvents: 'none',
-        zIndex: 0
-      }}></div>
-
-      <div style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-        pointerEvents: 'none',
-        backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)
-        `,
-        backgroundSize: 'clamp(40px, 5vw, 60px) clamp(40px, 5vw, 60px)'
-      }}></div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          .guide-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: 14px !important;
-          }
-        }
-        @media (max-width: 480px) {
-          .guide-grid {
-            grid-template-columns: 1fr !important;
-            gap: 12px !important;
-          }
-        }
-        .guide-card {
-          background: rgba(255,255,255,0.03);
-          backdrop-filter: blur(16px);
-          WebkitBackdropFilter: blur(16px);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: clamp(12px, 1.5vw, 16px);
-          padding: clamp(16px, 2vw, 20px);
-          transition: all 0.4s;
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-        }
-        .guide-card:hover {
-          background: rgba(255,255,255,0.06);
-          border-color: rgba(124,58,237,0.3);
-          transform: translateY(-6px);
-          box-shadow: 0 20px 60px rgba(124,58,237,0.1);
-        }
-        .back-link {
-          color: #6b7280;
-          text-decoration: none;
-          font-size: clamp(13px, 1.2vw, 14px);
-          transition: all 0.3s;
-          display: inline-block;
-        }
-        .back-link:hover {
-          color: white;
-          transform: translateX(-4px);
-        }
-        .read-link {
-          color: #a78bfa;
-          font-size: clamp(13px, 1.2vw, 14px);
-          font-weight: bold;
-          transition: all 0.3s;
-        }
-        .read-link:hover {
-          color: #c4b5fd;
-        }
-      `}</style>
-
+    <div
+      style={{
+        minHeight: '100vh',
+        color: 'white',
+        position: 'relative',
+        overflow: 'hidden',
+        background: 'transparent',
+      }}
+    >
       {/* ====== CONTENT ====== */}
-      <div style={{ 
-        position: 'relative', 
-        zIndex: 1,
-        maxWidth: '1200px',
-        margin: '0 auto',
-        paddingTop: 'clamp(40px, 6vw, 80px)'
-      }}>
-        
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '1200px',
+          margin: '0 auto',
+          paddingTop: 'clamp(40px, 6vw, 80px)',
+          paddingLeft: 'clamp(16px, 3vw, 20px)',
+          paddingRight: 'clamp(16px, 3vw, 20px)',
+          paddingBottom: 'clamp(20px, 3vw, 30px)',
+        }}
+      >
         {/* ====== HEADER ====== */}
-        <div style={{ 
-          textAlign: 'center', 
-          marginBottom: 'clamp(30px, 4vw, 40px)',
-          padding: '0 10px'
-        }}>
-          <h1 style={{ 
-            fontSize: 'clamp(28px, 5vw, 40px)', 
-            fontWeight: 'bold',
-            margin: '0'
-          }}>
+        <div
+          style={{
+            textAlign: 'center',
+            marginBottom: 'clamp(30px, 4vw, 40px)',
+            padding: '0 10px',
+          }}
+        >
+          <h1
+            style={{
+              fontSize: 'clamp(28px, 5vw, 40px)',
+              fontWeight: 'bold',
+              margin: '0',
+            }}
+          >
             Panduan <span style={{ color: '#a78bfa' }}>Bermain Slot</span>
           </h1>
-          <p style={{ 
-            color: '#9ca3af', 
-            fontSize: 'clamp(14px, 1.5vw, 16px)',
-            marginTop: '8px',
-            maxWidth: '600px',
-            marginLeft: 'auto',
-            marginRight: 'auto'
-          }}>
-            Kumpulan panduan lengkap untuk membantu Anda memahami dunia slot online di <a href="https://jun88ss.org" style={{ color: '#a78bfa', textDecoration: 'none' }}>Jun88</a>
+          <p
+            style={{
+              color: 'rgba(255,255,255,0.6)',
+              fontSize: 'clamp(14px, 1.5vw, 16px)',
+              marginTop: '8px',
+              maxWidth: '600px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            Kumpulan panduan lengkap untuk membantu Anda memahami dunia slot online di{' '}
+            <a
+              href="https://jun88ss.org"
+              style={{ color: '#a78bfa', textDecoration: 'none' }}
+            >
+              Jun88
+            </a>
           </p>
+
+          {/* ====== FILTERS ====== */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: 'clamp(6px, 1vw, 8px)',
+              marginTop: 'clamp(16px, 2vw, 20px)',
+            }}
+          >
+            {categories.map((cat) => {
+              const isActive = cat === 'Semua';
+              return (
+                <span
+                  key={cat}
+                  style={{
+                    padding: 'clamp(6px, 0.8vw, 8px) clamp(14px, 2vw, 18px)',
+                    borderRadius: '50px',
+                    fontSize: 'clamp(12px, 1.2vw, 14px)',
+                    fontWeight: '500',
+                    cursor: 'default',
+                    transition: 'all 0.3s',
+                    background: isActive
+                      ? 'linear-gradient(135deg, #7c3aed, #ec4899)'
+                      : 'rgba(255,255,255,0.08)',
+                    color: isActive ? 'white' : 'rgba(255,255,255,0.6)',
+                    border: isActive ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                    boxShadow: isActive
+                      ? '0 10px 30px rgba(124,58,237,0.2)'
+                      : 'none',
+                    backdropFilter: isActive ? 'none' : 'blur(10px)',
+                    WebkitBackdropFilter: isActive ? 'none' : 'blur(10px)',
+                  }}
+                >
+                  {cat}
+                </span>
+              );
+            })}
+          </div>
         </div>
 
         {/* ====== GRID PANDUAN ====== */}
-        <div className="guide-grid" style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'clamp(16px, 2vw, 20px)',
-          padding: '0 10px'
-        }}>
-          {filteredGuides.map((guide) => (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 'clamp(16px, 2vw, 20px)',
+            padding: '0 10px',
+          }}
+        >
+          {guides.map((guide) => (
             <Link
               key={guide.id}
               href={`/panduan/${guide.slug}`}
               style={{
                 textDecoration: 'none',
-                color: 'white'
+                color: 'white',
               }}
             >
-              <div className="guide-card">
-                {/* HEADER CARD */}
-                <div style={{
+              <div
+                style={{
+                  background: 'rgba(255,255,255,0.06)',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  borderRadius: '20px',
+                  padding: 'clamp(18px, 2vw, 24px)',
+                  transition: 'all 0.4s ease',
+                  height: '100%',
                   display: 'flex',
-                  alignItems: 'center',
-                  gap: 'clamp(8px, 1vw, 10px)',
-                  marginBottom: '12px'
-                }}>
-                  <span style={{ fontSize: 'clamp(24px, 3vw, 28px)' }}>{guide.emoji}</span>
-                  <span style={{
-                    fontSize: 'clamp(10px, 1vw, 12px)',
-                    fontWeight: 'bold',
-                    background: 'rgba(124,58,237,0.2)',
-                    color: '#a78bfa',
-                    padding: '4px 12px',
-                    borderRadius: '50px'
-                  }}>
+                  flexDirection: 'column',
+                  cursor: 'pointer',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                }}
+              >
+                {/* HEADER CARD */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 'clamp(8px, 1vw, 10px)',
+                    marginBottom: '12px',
+                  }}
+                >
+                  <span style={{ fontSize: 'clamp(28px, 3vw, 32px)' }}>
+                    {guide.emoji}
+                  </span>
+                  <span
+                    style={{
+                      fontSize: 'clamp(10px, 1vw, 12px)',
+                      fontWeight: 'bold',
+                      background: 'rgba(124,58,237,0.25)',
+                      color: '#a78bfa',
+                      padding: '4px 14px',
+                      borderRadius: '50px',
+                      border: '1px solid rgba(124,58,237,0.15)',
+                    }}
+                  >
                     {guide.category}
                   </span>
                 </div>
 
                 {/* TITLE */}
-                <h3 style={{
-                  fontWeight: 'bold',
-                  fontSize: 'clamp(15px, 1.5vw, 17px)',
-                  margin: '0 0 8px 0',
-                  lineHeight: '1.3',
-                  flex: '1'
-                }}>
+                <h3
+                  style={{
+                    fontWeight: 'bold',
+                    fontSize: 'clamp(16px, 1.5vw, 18px)',
+                    margin: '0 0 10px 0',
+                    lineHeight: '1.4',
+                    flex: '1',
+                    color: '#ffffff',
+                  }}
+                >
                   {guide.title}
                 </h3>
 
                 {/* DESCRIPTION */}
-                <p style={{
-                  color: '#9ca3af',
-                  fontSize: 'clamp(13px, 1.2vw, 14px)',
-                  margin: '0 0 16px 0',
-                  lineHeight: '1.6',
-                  flex: '1'
-                }}>
+                <p
+                  style={{
+                    color: 'rgba(255,255,255,0.7)',
+                    fontSize: 'clamp(13px, 1.2vw, 14px)',
+                    margin: '0 0 16px 0',
+                    lineHeight: '1.7',
+                    flex: '1',
+                  }}
+                >
                   {guide.description}
                 </p>
 
                 {/* FOOTER */}
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  paddingTop: '12px',
-                  borderTop: '1px solid rgba(255,255,255,0.05)'
-                }}>
-                  <span style={{
-                    color: '#6b7280',
-                    fontSize: 'clamp(11px, 1vw, 12px)'
-                  }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    paddingTop: '14px',
+                    borderTop: '1px solid rgba(255,255,255,0.06)',
+                  }}
+                >
+                  <span
+                    style={{
+                      color: 'rgba(255,255,255,0.4)',
+                      fontSize: 'clamp(11px, 1vw, 12px)',
+                    }}
+                  >
                     📅 {guide.date}
                   </span>
-                  <span className="read-link">
+                  <span
+                    style={{
+                      color: '#a78bfa',
+                      fontSize: 'clamp(13px, 1.2vw, 14px)',
+                      fontWeight: 'bold',
+                      transition: 'all 0.3s',
+                    }}
+                  >
                     Baca →
                   </span>
                 </div>
@@ -339,28 +339,39 @@ export default function PanduanPage() {
         </div>
 
         {/* ====== JUMLAH PANDUAN ====== */}
-        <div style={{
-          textAlign: 'center',
-          marginTop: 'clamp(20px, 3vw, 30px)',
-          color: '#6b7280',
-          fontSize: 'clamp(13px, 1.2vw, 14px)'
-        }}>
-          Menampilkan {filteredGuides.length} dari {guides.length} panduan
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: 'clamp(24px, 3vw, 36px)',
+            color: 'rgba(255,255,255,0.3)',
+            fontSize: 'clamp(13px, 1.2vw, 14px)',
+            padding: '0 10px',
+          }}
+        >
+          Menampilkan {guides.length} dari {guides.length} panduan
         </div>
 
         {/* ====== BACK TO HOME ====== */}
-        <div style={{ 
-          textAlign: 'center', 
-          marginTop: 'clamp(20px, 3vw, 30px)'
-        }}>
-          <Link 
-            href="/" 
-            className="back-link"
+        <div
+          style={{
+            textAlign: 'center',
+            marginTop: 'clamp(20px, 3vw, 30px)',
+            padding: '0 10px 20px 10px',
+          }}
+        >
+          <Link
+            href="/"
+            style={{
+              color: 'rgba(255,255,255,0.4)',
+              textDecoration: 'none',
+              fontSize: 'clamp(13px, 1.2vw, 14px)',
+              transition: 'all 0.3s',
+              display: 'inline-block',
+            }}
           >
             ← Kembali ke Beranda
           </Link>
         </div>
-
       </div>
     </div>
   );
