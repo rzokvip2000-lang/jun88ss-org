@@ -1,10 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',  // <-- STATIC EXPORT
+  // HAPUS atau KOMENTARI output: 'export' untuk development
+  // output: 'export', // <- COMMENT INI UNTUK DEVELOPMENT
   
   images: {
-    unoptimized: true,  // <-- WAJIB! Biar image bisa di-load di static export
+    // Untuk static export, gunakan unoptimized: true
+    unoptimized: true, // <- INI PENTING UNTUK STATIC EXPORT
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -14,8 +16,10 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+    path: '/_next/image',
   },
   
+  trailingSlash: false,
   compress: true,
   reactStrictMode: true,
   

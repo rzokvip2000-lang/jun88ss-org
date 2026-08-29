@@ -1,27 +1,21 @@
-import Link from 'next/link';
-import Image from 'next/image';
+'use client';
 
-export const metadata = {
-  title: 'Review Permainan Jun88 - Kumpulan Review Game Slot PG Soft Terlengkap',
-  description: 'Review lengkap semua game slot PG Soft di Jun88: Mahjong Ways, Mahjong Ways 2, Ways of the Qilin, Sugar Rush 1000, Zeus Vs Hades, Wisdom of Athena. RTP, volatilitas, max win, dan fitur bonus.',
-  alternates: {
-    canonical: 'https://jun88ss.org/review',
-  },
-  openGraph: {
-    title: 'Review Permainan Jun88 - Kumpulan Review Game Slot PG Soft Terlengkap',
-    description: 'Review lengkap semua game slot PG Soft di Jun88. Temukan RTP, volatilitas, max win, dan fitur bonus setiap game.',
-    url: 'https://jun88ss.org/review',
-    siteName: 'Jun88',
-    type: 'website',
-    locale: 'id_ID',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import GameImage from '@/components/GameImage';
 
 export default function ReviewPage() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const games = [
     { 
       id: 1, 
@@ -85,42 +79,60 @@ export default function ReviewPage() {
     },
   ];
 
+  // Nilai responsive berdasarkan mobile/desktop
+  const paddingTop = isMobile ? '70px' : '80px';
+  const paddingX = isMobile ? '12px' : '20px';
+  const paddingBottom = isMobile ? '16px' : '30px';
+  const headingSize = isMobile ? '24px' : '40px';
+  const subHeadingSize = isMobile ? '13px' : '16px';
+  const introPadding = isMobile ? '16px' : '36px';
+  const introFontSize = isMobile ? '13px' : '17px';
+  const cardPadding = isMobile ? '8px' : '16px';
+  const cardRadius = isMobile ? '14px' : '20px';
+  const titleSize = isMobile ? '12px' : '16px';
+  const ratingSize = isMobile ? '10px' : '13px';
+  const rtpSize = isMobile ? '10px' : '13px';
+  const gridCols = isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)';
+  const buttonPadding = isMobile ? '8px 14px' : '12px 24px';
+  const buttonFontSize = isMobile ? '11px' : '15px';
+  const marginBottom = isMobile ? '16px' : '40px';
+
   return (
     <div
+      className="w-full max-w-full overflow-x-hidden"
       style={{
         minHeight: '100vh',
         color: 'white',
         position: 'relative',
-        overflow: 'hidden',
-        background: 'transparent',
+        background: 'transparent'
       }}
     >
-      {/* ====== CONTENT ====== */}
       <div
+        className="container"
         style={{
           position: 'relative',
           zIndex: 1,
-          maxWidth: '1200px',
-          margin: '0 auto',
-          paddingTop: 'clamp(40px, 6vw, 80px)',
-          paddingLeft: 'clamp(16px, 3vw, 20px)',
-          paddingRight: 'clamp(16px, 3vw, 20px)',
-          paddingBottom: 'clamp(20px, 3vw, 30px)',
+          paddingTop: paddingTop,
+          paddingLeft: paddingX,
+          paddingRight: paddingX,
+          paddingBottom: paddingBottom,
+          width: '100%'
         }}
       >
         {/* ====== HEADER ====== */}
         <div
+          className="text-center"
           style={{
-            textAlign: 'center',
-            marginBottom: 'clamp(30px, 4vw, 40px)',
-            padding: '0 10px',
+            marginBottom: isMobile ? '20px' : '40px',
+            padding: '0 8px'
           }}
         >
           <h1
             style={{
-              fontSize: 'clamp(28px, 5vw, 40px)',
+              fontSize: headingSize,
               fontWeight: 'bold',
               margin: '0',
+              lineHeight: '1.2'
             }}
           >
             Review <span style={{ color: '#a78bfa' }}>Permainan Jun88</span>
@@ -128,14 +140,16 @@ export default function ReviewPage() {
           <p
             style={{
               color: 'rgba(255,255,255,0.6)',
-              fontSize: 'clamp(14px, 1.5vw, 16px)',
-              marginTop: '8px',
+              fontSize: subHeadingSize,
+              marginTop: '8px'
             }}
           >
             Kumpulan review lengkap untuk game-game slot terbaik di{' '}
             <a
               href="https://jun88ss.org"
               style={{ color: '#a78bfa', textDecoration: 'none' }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Jun88
             </a>
@@ -144,24 +158,24 @@ export default function ReviewPage() {
 
         {/* ====== ARTIKEL INTRO ====== */}
         <div
+          className="glass-effect"
           style={{
             maxWidth: '900px',
-            margin: '0 auto clamp(30px, 4vw, 40px)',
-            padding: 'clamp(24px, 3vw, 36px)',
-            background: 'rgba(255,255,255,0.06)',
-            backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(255,255,255,0.06)',
-            borderRadius: '20px',
+            margin: `0 auto ${marginBottom}`,
+            padding: introPadding,
+            borderRadius: isMobile ? '16px' : '20px',
             textAlign: 'center',
             boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+            width: '100%'
           }}
         >
           <h2
             style={{
-              fontSize: 'clamp(20px, 2.5vw, 26px)',
+              fontSize: isMobile ? '18px' : '26px',
               fontWeight: 'bold',
-              marginBottom: '16px',
+              marginBottom: '12px',
               color: '#ffffff',
+              lineHeight: '1.3'
             }}
           >
             Review Game Slot Terlengkap di{' '}
@@ -170,14 +184,17 @@ export default function ReviewPage() {
           <p
             style={{
               color: 'rgba(255,255,255,0.8)',
-              fontSize: 'clamp(15px, 1.2vw, 17px)',
-              lineHeight: '1.9',
-              marginBottom: '16px',
+              fontSize: introFontSize,
+              lineHeight: '1.8',
+              marginBottom: '12px',
+              textAlign: isMobile ? 'left' : 'center'
             }}
           >
             <a
               href="https://jun88ss.org"
               style={{ color: '#a78bfa', textDecoration: 'none' }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Jun88
             </a>{' '}
@@ -191,9 +208,10 @@ export default function ReviewPage() {
           <p
             style={{
               color: 'rgba(255,255,255,0.8)',
-              fontSize: 'clamp(15px, 1.2vw, 17px)',
-              lineHeight: '1.9',
-              marginBottom: '16px',
+              fontSize: introFontSize,
+              lineHeight: '1.8',
+              marginBottom: '12px',
+              textAlign: isMobile ? 'left' : 'center'
             }}
           >
             Setiap{' '}
@@ -207,28 +225,23 @@ export default function ReviewPage() {
             <strong style={{ color: '#ffffff' }}>pengalaman bermain langsung</strong>{' '}
             dan analisis mendalam terhadap RTP, volatilitas, fitur bonus, hingga
             potensi max win. Dengan informasi ini, Anda bisa memilih game yang paling
-            sesuai dengan gaya bermain dan modal yang Anda miliki. Untuk memulai
-            petualangan Anda, lakukan{' '}
-            <a
-              href="https://jun88ss.org"
-              style={{ color: '#a78bfa', textDecoration: 'none' }}
-            >
-              daftar Jun88
-            </a>{' '}
-            sekarang juga!
+            sesuai dengan gaya bermain dan modal yang Anda miliki.
           </p>
           <p
             style={{
               color: 'rgba(255,255,255,0.8)',
-              fontSize: 'clamp(15px, 1.2vw, 17px)',
-              lineHeight: '1.9',
+              fontSize: introFontSize,
+              lineHeight: '1.8',
               marginBottom: '0',
+              textAlign: isMobile ? 'left' : 'center'
             }}
           >
             Temukan{' '}
             <a
               href="https://jun88ss.org"
               style={{ color: '#a78bfa', textDecoration: 'none' }}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               login Jun88
             </a>{' '}
@@ -247,7 +260,7 @@ export default function ReviewPage() {
             >
               artikel
             </a>{' '}
-            menarik lainnya yang akan memperkaya wawasan Anda!
+            menarik lainnya!
           </p>
         </div>
 
@@ -256,36 +269,40 @@ export default function ReviewPage() {
           style={{
             maxWidth: '1200px',
             margin: '0 auto',
-            padding: 'clamp(20px, 3vw, 30px) 0',
+            padding: `${isMobile ? '16px' : '30px'} 0`,
+            width: '100%'
           }}
         >
           {/* ====== SECTION HEADER ====== */}
           <div
             style={{
               textAlign: 'center',
-              marginBottom: 'clamp(20px, 3vw, 30px)',
+              marginBottom: isMobile ? '16px' : '30px',
+              padding: '0 8px'
             }}
           >
             <span
               style={{
                 color: '#a78bfa',
-                fontSize: 'clamp(12px, 1.5vw, 14px)',
+                fontSize: isMobile ? '10px' : '14px',
                 fontWeight: 'bold',
                 background: 'rgba(124,58,237,0.1)',
-                padding: 'clamp(6px, 1vw, 8px) clamp(14px, 2vw, 20px)',
+                padding: isMobile ? '4px 12px' : '8px 20px',
                 borderRadius: '50px',
                 border: '1px solid rgba(124,58,237,0.2)',
                 backdropFilter: 'blur(10px)',
+                display: 'inline-block'
               }}
             >
               📝 Review Game
             </span>
             <h2
               style={{
-                fontSize: 'clamp(24px, 5vw, 36px)',
+                fontSize: isMobile ? '24px' : '36px',
                 fontWeight: 'bold',
-                marginTop: '12px',
+                marginTop: '10px',
                 color: '#ffffff',
+                lineHeight: '1.2'
               }}
             >
               Review <span style={{ color: '#a78bfa' }}>Terlengkap</span>
@@ -293,12 +310,13 @@ export default function ReviewPage() {
             <p
               style={{
                 color: 'rgba(255,255,255,0.7)',
-                fontSize: 'clamp(15px, 1.2vw, 17px)',
-                marginTop: '12px',
+                fontSize: isMobile ? '13px' : '17px',
+                marginTop: '10px',
                 maxWidth: '700px',
                 marginLeft: 'auto',
                 marginRight: 'auto',
-                lineHeight: '1.8',
+                lineHeight: '1.7',
+                padding: '0 10px'
               }}
             >
               Berikut adalah kumpulan review mendalam untuk 6 game slot terpopuler
@@ -306,18 +324,12 @@ export default function ReviewPage() {
               <a
                 href="https://jun88ss.org"
                 style={{ color: '#a78bfa', textDecoration: 'none' }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Jun88
               </a>
-              . Setiap{' '}
-              <a
-                href="/review"
-                style={{ color: '#a78bfa', textDecoration: 'none' }}
-              >
-                review
-              </a>{' '}
-              mencakup analisis RTP, volatilitas, fitur bonus, hingga tips strategi
-              bermain untuk membantu Anda memilih game yang paling sesuai.
+              .
             </p>
           </div>
 
@@ -325,9 +337,10 @@ export default function ReviewPage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: 'clamp(12px, 2vw, 20px)',
-              padding: '0 10px',
+              gridTemplateColumns: gridCols,
+              gap: isMobile ? '10px' : '20px',
+              padding: '0 4px',
+              width: '100%'
             }}
           >
             {games.map((game) => (
@@ -338,66 +351,64 @@ export default function ReviewPage() {
                   textDecoration: 'none',
                   color: 'inherit',
                   display: 'block',
+                  width: '100%'
                 }}
               >
                 <div
+                  className="glass-effect"
                   style={{
-                    background: 'rgba(255,255,255,0.06)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '20px',
-                    padding: 'clamp(12px, 1.5vw, 16px)',
+                    borderRadius: cardRadius,
+                    padding: cardPadding,
                     transition: 'all 0.4s ease',
                     textAlign: 'center',
                     height: '100%',
                     boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                    cursor: 'pointer',
+                    overflow: 'hidden'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isMobile) {
+                      e.currentTarget.style.transform = 'translateY(-8px)';
+                      e.currentTarget.style.borderColor = 'rgba(167,139,250,0.3)';
+                      e.currentTarget.style.boxShadow = '0 20px 60px rgba(124,58,237,0.15)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isMobile) {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+                      e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.3)';
+                    }
                   }}
                 >
+                  {/* ====== GAME IMAGE ====== */}
                   <div
                     style={{
+                      position: 'relative',
                       width: '100%',
                       aspectRatio: '1/1',
-                      borderRadius: '16px',
+                      borderRadius: isMobile ? '12px' : '16px',
                       overflow: 'hidden',
-                      background: game.gradient,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      position: 'relative',
+                      background: game.gradient
                     }}
                   >
-                    <Image
+                    <GameImage
                       src={game.image}
                       alt={game.title}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                      style={{
-                        objectFit: 'cover',
-                        objectPosition: 'center',
-                      }}
+                      emoji={game.emoji}
+                      priority={game.id <= 3}
+                      sizes={isMobile ? "(max-width: 768px) 50vw, 33vw" : "(max-width: 768px) 50vw, 33vw"}
                     />
-                    <div
-                      style={{
-                        position: 'absolute',
-                        fontSize: 'clamp(40px, 6vw, 64px)',
-                        zIndex: 1,
-                        opacity: 0.3,
-                        textShadow: '0 0 20px rgba(0,0,0,0.5)',
-                        pointerEvents: 'none',
-                      }}
-                    >
-                      {game.emoji}
-                    </div>
                   </div>
 
                   <h3
                     style={{
                       fontWeight: 'bold',
-                      fontSize: 'clamp(14px, 1.5vw, 16px)',
-                      margin: '8px 0 4px',
+                      fontSize: titleSize,
+                      margin: isMobile ? '4px 0 2px' : '8px 0 4px',
                       lineHeight: '1.2',
                       color: '#ffffff',
+                      wordBreak: 'break-word'
                     }}
                   >
                     {game.title}
@@ -405,8 +416,8 @@ export default function ReviewPage() {
                   <p
                     style={{
                       color: 'rgba(255,255,255,0.4)',
-                      fontSize: 'clamp(12px, 1.2vw, 13px)',
-                      margin: 0,
+                      fontSize: ratingSize,
+                      margin: 0
                     }}
                   >
                     PG Soft • ⭐ {game.rating}
@@ -417,16 +428,18 @@ export default function ReviewPage() {
                       display: 'flex',
                       justifyContent: 'space-between',
                       alignItems: 'center',
-                      marginTop: '12px',
-                      paddingTop: '12px',
+                      marginTop: isMobile ? '6px' : '12px',
+                      paddingTop: isMobile ? '6px' : '12px',
                       borderTop: '1px solid rgba(255,255,255,0.06)',
+                      flexWrap: 'wrap',
+                      gap: '4px'
                     }}
                   >
                     <span
                       style={{
                         color: '#34d399',
                         fontWeight: 'bold',
-                        fontSize: 'clamp(12px, 1.2vw, 13px)',
+                        fontSize: rtpSize
                       }}
                     >
                       RTP {game.rtp}
@@ -434,11 +447,11 @@ export default function ReviewPage() {
                     <span
                       style={{
                         color: '#a78bfa',
-                        fontSize: 'clamp(12px, 1.2vw, 13px)',
-                        fontWeight: 'bold',
+                        fontSize: rtpSize,
+                        fontWeight: 'bold'
                       }}
                     >
-                      Baca Review →
+                      {isMobile ? 'Review →' : 'Baca Review →'}
                     </span>
                   </div>
                 </div>
@@ -450,24 +463,34 @@ export default function ReviewPage() {
           <div
             style={{
               textAlign: 'center',
-              marginTop: 'clamp(20px, 3vw, 30px)',
+              marginTop: isMobile ? '16px' : '30px',
+              padding: '0 10px'
             }}
           >
             <Link
               href="/review"
+              className="glass-effect"
               style={{
-                display: 'inline-flex',
+                display: isMobile ? 'block' : 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '8px',
-                padding: 'clamp(10px, 1.5vw, 12px) clamp(16px, 3vw, 24px)',
+                padding: buttonPadding,
                 borderRadius: '50px',
                 border: '1px solid rgba(255,255,255,0.1)',
                 color: '#ffffff',
                 textDecoration: 'none',
-                background: 'rgba(255,255,255,0.05)',
-                backdropFilter: 'blur(10px)',
-                fontSize: 'clamp(13px, 1.5vw, 15px)',
+                fontSize: buttonFontSize,
                 transition: 'all 0.3s',
+                width: isMobile ? '100%' : 'auto'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(167,139,250,0.2)';
+                e.currentTarget.style.borderColor = 'rgba(167,139,250,0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
               }}
             >
               Lihat Semua Review →
@@ -479,10 +502,10 @@ export default function ReviewPage() {
         <div
           style={{
             textAlign: 'center',
-            marginTop: 'clamp(24px, 3vw, 36px)',
+            marginTop: isMobile ? '16px' : '36px',
             color: 'rgba(255,255,255,0.3)',
-            fontSize: 'clamp(13px, 1.2vw, 14px)',
-            padding: '0 10px',
+            fontSize: isMobile ? '11px' : '14px',
+            padding: '0 10px'
           }}
         >
           Menampilkan {games.length} review game
@@ -492,8 +515,8 @@ export default function ReviewPage() {
         <div
           style={{
             textAlign: 'center',
-            marginTop: 'clamp(20px, 3vw, 30px)',
-            padding: '0 10px 20px 10px',
+            marginTop: isMobile ? '16px' : '30px',
+            padding: '0 10px 20px 10px'
           }}
         >
           <Link
@@ -501,9 +524,15 @@ export default function ReviewPage() {
             style={{
               color: 'rgba(255,255,255,0.4)',
               textDecoration: 'none',
-              fontSize: 'clamp(13px, 1.2vw, 14px)',
+              fontSize: isMobile ? '11px' : '14px',
               transition: 'all 0.3s',
-              display: 'inline-block',
+              display: 'inline-block'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = 'rgba(255,255,255,0.8)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'rgba(255,255,255,0.4)';
             }}
           >
             ← Kembali ke Beranda

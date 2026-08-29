@@ -25,10 +25,12 @@ export default function Footer() {
       WebkitBackdropFilter: 'blur(20px)',
       borderTop: '1px solid rgba(255,255,255,0.05)',
       color: 'white',
-      padding: 'clamp(30px, 4vw, 40px) clamp(16px, 3vw, 20px)',
-      marginTop: 'clamp(30px, 4vw, 40px)',
+      padding: 'clamp(24px, 4vw, 40px) clamp(12px, 3vw, 20px)',
+      marginTop: 'clamp(24px, 4vw, 40px)',
       position: 'relative',
-      zIndex: 10
+      zIndex: 10,
+      width: '100%',
+      maxWidth: '100vw'
     }}>
       <div style={{
         maxWidth: '1200px',
@@ -36,15 +38,15 @@ export default function Footer() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: 'clamp(20px, 3vw, 30px)'
+        gap: 'clamp(16px, 3vw, 30px)',
+        width: '100%'
       }}>
         
-        {/* ====== MENU ====== */}
         <nav style={{
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          gap: 'clamp(16px, 2vw, 24px)'
+          gap: 'clamp(12px, 2vw, 24px)'
         }}>
           {menus.map((item) => (
             <Link
@@ -53,7 +55,7 @@ export default function Footer() {
               style={{
                 color: '#9ca3af',
                 textDecoration: 'none',
-                fontSize: 'clamp(13px, 1.2vw, 14px)',
+                fontSize: 'clamp(12px, 1.2vw, 14px)',
                 transition: 'all 0.3s'
               }}
               onMouseEnter={(e) => {
@@ -68,26 +70,26 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* ====== LEGAL ====== */}
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          gap: 'clamp(12px, 2vw, 20px)',
-          padding: 'clamp(12px, 1.5vw, 16px) 0',
+          gap: 'clamp(8px, 2vw, 20px)',
+          padding: 'clamp(10px, 1.5vw, 16px) 0',
           borderTop: '1px solid rgba(255,255,255,0.05)',
           borderBottom: '1px solid rgba(255,255,255,0.05)',
           width: '100%'
         }}>
           {legal.map((item, index) => (
-            <span key={item.href} style={{ display: 'flex', alignItems: 'center', gap: 'clamp(12px, 2vw, 20px)' }}>
+            <span key={item.href} style={{ display: 'flex', alignItems: 'center', gap: 'clamp(8px, 2vw, 20px)' }}>
               <Link
                 href={item.href}
                 style={{
                   color: '#6b7280',
                   textDecoration: 'none',
-                  fontSize: 'clamp(12px, 1.2vw, 13px)',
-                  transition: 'all 0.3s'
+                  fontSize: 'clamp(10px, 1.2vw, 13px)',
+                  transition: 'all 0.3s',
+                  whiteSpace: 'nowrap'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.color = '#a78bfa';
@@ -105,16 +107,15 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* ====== DISCLAIMER & COPYRIGHT ====== */}
         <div style={{
           textAlign: 'center',
           width: '100%'
         }}>
           <p style={{ 
             color: '#6b7280', 
-            fontSize: 'clamp(11px, 1.2vw, 12px)',
+            fontSize: 'clamp(10px, 1.2vw, 12px)',
             lineHeight: '1.8',
-            marginBottom: '12px'
+            marginBottom: '10px'
           }}>
             <span style={{ color: '#fbbf24', fontWeight: 'bold' }}>⚠️ Peringatan 18+</span>
             <br />
@@ -129,13 +130,13 @@ export default function Footer() {
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: 'clamp(12px, 2vw, 20px)',
+            gap: 'clamp(8px, 2vw, 20px)',
             flexWrap: 'wrap'
           }}>
-            <span style={{ color: '#4b5563', fontSize: 'clamp(10px, 1vw, 12px)' }}>
+            <span style={{ color: '#4b5563', fontSize: 'clamp(9px, 1vw, 12px)' }}>
               © 2026 <a href="https://jun88ss.org" style={{ color: '#4b5563', textDecoration: 'none' }}>Jun88</a>. All rights reserved.
             </span>
-            <span style={{ color: '#4b5563', fontSize: 'clamp(10px, 1vw, 12px)' }}>
+            <span style={{ color: '#4b5563', fontSize: 'clamp(9px, 1vw, 12px)' }}>
               Made with ❤️
             </span>
           </div>
